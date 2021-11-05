@@ -6,12 +6,6 @@ using System.Threading.Tasks;
 
 namespace Owoda.Models
 {
-    public class OwodaTicket {
-        private Random _random = new Random();
-
-        public int TicketId { get { return _random.Next(); } }
-    }
-
     public class OwodaApp
     {
         private uint _todayEarnings = 0;
