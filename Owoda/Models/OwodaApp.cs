@@ -8,41 +8,53 @@ namespace Owoda.Models
 {
     public class OwodaApp
     {
-        private double _bossShare = 0;
-        private double _memberShare = 0;
-        private uint _totalEarnings = 0;
+        private uint _todayEarnings = 0;
         private uint _dailyTicketsSold = 0;
         private uint _monthlyTicketsSold = 0;
 
-        public double BossShare { get { return _bossShare; } }
-        public double MemberShare { get { return _memberShare; } }
-        public uint TotalEarnings { get { return _totalEarnings; } }
+        public uint TodayEarnings { get { return _todayEarnings; } }
         public uint DailyTicketSold { get { return _dailyTicketsSold; } }
         public uint MonthlyTicketSold { get { return _monthlyTicketsSold; } }
+        private double BossShare { get { return Math.Round((0.65 * _todayEarnings), 2); } }
+        private double MemberShare { get { return return Math.Round((0.35 * _todayEarnings), 2); } }
 
-        public void ComputeTicketSale()
+        public void ProcessTicketOrder()
         {
-            _totalEarnings = 25;
-            _dailyTicketsSold = 20;
-            _monthlyTicketsSold = 5;
+            Console.WriteLine("Welcome to the Owoda app. Kinly select ticket type");
+            Console.WriteLine($"Reply 1 for Daily");
+            Console.WriteLine($"Reply 2 for Monthly");
+
+            public uint ticketChoice = Console.ReadLine();
+
+            ComputeTicketSale(ticketChoice);
+
+            Console.WriteLine("Ticked issued successfully");
         }
 
-        public void ComputeShare()
+        public void ComputeTicketSale(uint choice)
         {
-            _bossShare = 8.75;
-            _memberShare = 16.25;
+            if(choice == 1) {
+                _todayEarnings += 200;
+                _dailyTicketsSold += 1;
+            } else if(choice == 2) {
+                _todayEarnings += 3100;
+                _monthlyTicketsSold += 1;
+            }
         }
 
-        public string ShowSalesSummary()
+        public string GenerateSalesSummary()
         {
-            ComputeTicketSale();
-            ComputeShare();
-
-            Console.WriteLine("SALES SUMMARY");
-            Console.WriteLine($"Total Sales: {TotalEarnings} \n Daily: {DailyTicketSold} \n Monthly: {_monthlyTicketsSold}");
+            Console.WriteLine("TODAY SALES SUMMARY");
+            Console.WriteLine($"Total Sales: {TodayEarnings} \n Daily: {DailyTicketSold} \n Monthly: {_monthlyTicketsSold}");
             Console.WriteLine($"Your share: {MemberShare}");
             Console.WriteLine($"Boss's share: {BossShare}");
             return "";
         }
+    }
+
+    public class OwodaTicket {
+        private Random _random = new Random();
+
+        public string TicketId { get { return _random.Next(); } }
     }
 }
