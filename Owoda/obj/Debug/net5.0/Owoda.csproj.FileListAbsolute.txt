@@ -1,0 +1,16 @@
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\Owoda.exe
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\Owoda.deps.json
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\Owoda.runtimeconfig.json
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\Owoda.runtimeconfig.dev.json
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\Owoda.dll
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\ref\Owoda.dll
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\bin\Debug\net5.0\Owoda.pdb
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.csproj.AssemblyReference.cache
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.AssemblyInfoInputs.cache
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.AssemblyInfo.cs
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.csproj.CoreCompileInputs.cache
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.dll
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\ref\Owoda.dll
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.pdb
+C:\Users\support\Desktop\Projects\c#\Owoda\Owoda\obj\Debug\net5.0\Owoda.genruntimeconfig.cache

@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Owoda.Models
 {
+    public class OwodaTicket {
+        private Random _random = new Random();
+
+        public int TicketId { get { return _random.Next(); } }
+    }
+
     public class OwodaApp
     {
         private uint _todayEarnings = 0;
@@ -16,45 +22,99 @@ namespace Owoda.Models
         public uint DailyTicketSold { get { return _dailyTicketsSold; } }
         public uint MonthlyTicketSold { get { return _monthlyTicketsSold; } }
         private double BossShare { get { return Math.Round((0.65 * _todayEarnings), 2); } }
-        private double MemberShare { get { return return Math.Round((0.35 * _todayEarnings), 2); } }
+        private double MemberShare { get { return Math.Round((0.35 * _todayEarnings), 2); } }
 
-        public void ProcessTicketOrder()
+        public void InitializeApp()
         {
-            Console.WriteLine("Welcome to the Owoda app. Kinly select ticket type");
-            Console.WriteLine($"Reply 1 for Daily");
-            Console.WriteLine($"Reply 2 for Monthly");
+            Console.WriteLine("1 to buy ticket");
+            Console.WriteLine("2 to get summary");
 
-            public uint ticketChoice = Console.ReadLine();
+            string response = Console.ReadLine();
+
+            if (response == "1")
+            {
+                Console.WriteLine(ProcessTicketOrder());
+            }
+            else if (response == "2")
+            {
+                Console.WriteLine(GenerateSalesSummary());
+            }
+            else
+            {
+                Console.WriteLine("Unknown command! Please try again.");
+                InitializeFollowUp();
+            }
+        }
+
+        public string ProcessTicketOrder()
+        {
+            Console.WriteLine("Select ticket type");
+            Console.WriteLine("1 for Daily");
+            Console.WriteLine("2 for Monthly");
+
+            string ticketChoice = Console.ReadLine();
 
             ComputeTicketSale(ticketChoice);
 
-            Console.WriteLine("Ticked issued successfully");
+            InitializeFollowUp();
+
+            return "";
         }
 
-        public void ComputeTicketSale(uint choice)
+        public void ComputeTicketSale(string choice)
         {
-            if(choice == 1) {
+            if (choice == "1")
+            {
                 _todayEarnings += 200;
                 _dailyTicketsSold += 1;
-            } else if(choice == 2) {
+
+                Console.WriteLine("Ticket bought successfully!");
+                Console.WriteLine($"Ticket ID: {GenerateTicketID()}-D");
+                Console.WriteLine("Ticket Type: Daily");
+                Console.WriteLine("Ticket Price: N200");
+            }
+            else if (choice == "2")
+            {
                 _todayEarnings += 3100;
                 _monthlyTicketsSold += 1;
+
+                Console.WriteLine("Ticket bought successfully!");
+                Console.WriteLine($"Ticket ID: {GenerateTicketID()}-M");
+                Console.WriteLine("Ticket Type: Monthly");
+                Console.WriteLine("Ticket Price: N3100 (N100 daily)");
             }
         }
 
         public string GenerateSalesSummary()
         {
             Console.WriteLine("TODAY SALES SUMMARY");
-            Console.WriteLine($"Total Sales: {TodayEarnings} \n Daily: {DailyTicketSold} \n Monthly: {_monthlyTicketsSold}");
-            Console.WriteLine($"Your share: {MemberShare}");
-            Console.WriteLine($"Boss's share: {BossShare}");
+            Console.WriteLine($"Total Sales: {TodayEarnings}");
+            Console.WriteLine($"Daily tickets sold: { DailyTicketSold}");
+            Console.WriteLine($"Monthly tickets sold: { _monthlyTicketsSold}");
+            Console.WriteLine($"Remittance: {BossShare}");
+
+            InitializeFollowUp();
+
             return "";
         }
-    }
 
-    public class OwodaTicket {
-        private Random _random = new Random();
+        public int GenerateTicketID()
+        {
+            Random random = new Random();
+            return random.Next();
+        }
 
-        public string TicketId { get { return _random.Next(); } }
+        public void InitializeFollowUp()
+        {
+            Console.WriteLine("Pick a follow-up action");
+            Console.WriteLine("0 to return to menu");
+
+            string followUp = Console.ReadLine();
+
+            if (followUp == "0")
+            {
+                InitializeApp();
+            }
+        }
     }
 }

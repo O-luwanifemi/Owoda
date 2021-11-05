@@ -7,8 +7,11 @@ namespace Owoda
     {
         static void Main(string[] args)
         {
-            OwodaApp Owoda = new OwodaApp();
-            Owoda.ShowSalesSummary();
+            OwodaApp App = new OwodaApp();
+
+            Console.WriteLine("Welcome to Owoda! Pick an option");
+
+            App.InitializeApp();
         }
     }
 }
